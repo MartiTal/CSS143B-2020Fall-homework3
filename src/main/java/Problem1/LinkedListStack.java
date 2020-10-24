@@ -21,7 +21,7 @@ public class LinkedListStack<T> implements Stack<T> {
     @Override
     public T pop() {
         // homework
-        return data.getLast();
+        return data.removeLast();
     }
 
     @Override
