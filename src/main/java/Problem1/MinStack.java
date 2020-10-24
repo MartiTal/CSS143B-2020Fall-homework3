@@ -15,19 +15,26 @@ public class MinStack extends ArrayStack<Integer> {
     @Override
     public boolean push(Integer val) {
         // homework
-        return false; // place holder
+        super.push(val);
+        if (minis.peek() == null || val < minis.peek()) {
+            minis.push(val);
+        }
+        return true; // place holder
     }
 
     @Override
     public Integer pop() {
         // homework
-        return -1; // place holder
+        if (!(minis.peek() == null) && super.peek() == minis.peek()) {
+            minis.pop();
+        }
+        return super.pop();
     }
 
     public Integer getMin() {
         // homework
         // loop of any kind is not allowed
-        return -1; // place holder
+        return minis.peek(); // place holder
     }
 }
 

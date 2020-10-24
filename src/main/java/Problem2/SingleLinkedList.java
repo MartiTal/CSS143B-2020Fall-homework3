@@ -13,6 +13,15 @@ public class SingleLinkedList {
     // copy constructor
     public SingleLinkedList(SingleLinkedList list) {
         // homework
+        ListNode p2 = list.head.next;
+        ListNode p1 = new ListNode();
+        head = p1;
+        while (p2 != null) {
+            p1.next = new ListNode(p2.val);
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        size = list.getSize();
     }
 
     public int removeAll(int valueToRemove) {
@@ -25,6 +34,15 @@ public class SingleLinkedList {
     public void reverse() {
         // homework
         // in-place
+        ListNode p1 = head;
+        ListNode p2 = p1.next;
+        while (p1 != null) {
+            p1.next = p2.next;
+            p2.next = head.next;
+            head.next = p2;
+        }
+
+
     }
 
     // do not change any function below
