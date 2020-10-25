@@ -10,26 +10,47 @@ public class ArrayStack<T> implements Stack<T> {
 
     public ArrayStack(int capacity) {
         // homework
+        data = (T[]) new Object[capacity];
+        //To understand why I couldn't declare a new T[] array, I looked at this page:
+        //https://stackoverflow.com/questions/2927391/whats-the-reason-i-cant-create-generic-array-types-in-java
     }
 
     @Override
     public boolean push(T val) {
         // homework
-        return false;   // place holder
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] == null) {
+                data[i] = val;
+                size++;
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public T pop() {
         // homework
-        T val = null;   // place holder
-        return val;   // place holder
+        for (int i = data.length-1; i >= 0; i--) {
+            if (data[i] != null) {
+                T val = data[i];
+                data[i] = null;
+                size--;
+                return val;
+            }
+        }
+        return null;
     }
 
     @Override
     public T peek() {
         // homework
-        T val = null;   // place holder
-        return val;   // place holder
+        for (int i = data.length-1; i >= 0; i--) {
+            if (data[i] != null) {
+                return data[i];
+            }
+        }
+        return null;
     }
 
     @Override
