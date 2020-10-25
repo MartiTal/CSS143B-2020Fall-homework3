@@ -34,15 +34,16 @@ public class SingleLinkedList {
     public void reverse() {
         // homework
         // in-place
-        ListNode p1 = head;
-        ListNode p2 = p1.next;
-        while (p1 != null) {
+        ListNode p1 = head.next;
+        if (p1 == null)
+            return;
+        ListNode p2;
+        while (p1.next != null) {
+            p2 = p1.next;
             p1.next = p2.next;
             p2.next = head.next;
             head.next = p2;
         }
-
-
     }
 
     // do not change any function below

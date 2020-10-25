@@ -39,6 +39,7 @@ public class Problem3Test {
             Problem3.printListInReverse(arrayToList(inputs[i]), ps);
 
             String tmp = baos.toString().replace("\n", " ").replace("\r", "").trim();
+            // ^ This line of the test had to be changed due to a bug on Windows
             if (inputs[i].length != 0) {
                 int[] actual = Arrays.stream(tmp.split(" ")).mapToInt(Integer::parseInt).toArray();
                 assertArrayEquals(expected[i], actual);
